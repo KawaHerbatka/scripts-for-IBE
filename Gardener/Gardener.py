@@ -30,7 +30,7 @@ def nexus_search(nexusfile):
         if(line.lower()=="end;\n" or line.lower()=="end;"):
             break
         split = line.split("[")
-        if(len(split[-1].split("=")) == 2 and split[-1].split("=")[0] == "&!color" and split[-1].split("=")[1] != "#000000"):
+        if(len(split[-1].split("=")) == 2 and split[-1].split("=")[0] == "&!color" and split[-1] != "&!color=#000000]\n"):
             trimList.append(re.sub("\n",'',re.sub("\t", '',''.join(split[:-1]))).replace("'", ""))
 
     return trimList
